@@ -18,7 +18,10 @@ type Form = {
   errors: Errors;
 };
 
+
 // Реалізуйте Params так, щоб унеможливити поле 'errors' з типу Form
-type Params = Form;
+
+// тут в нагоді буде Omit. Працює як Pick, але навпаки (тобто обраний критерій буде забрано із зазначеного типу)
+type Params = Omit<Form, 'errors'>;
 
 export {};

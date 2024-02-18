@@ -3,8 +3,17 @@
   Використовуйте generics, щоб вказати, що ці об'єкти можуть бути будь-якого типу.
 */
 
-function merge (objA, objB) {
-  return Object.assign(objA, objB);
+// Для кожного об`єкту визначаємо свій тип, а потім об`єднуємо і повертаємо.
+function merge<T, U> (objA: T, objB: U): T & U {
+  return {...objA, ...objB};
 }
-
 export {}
+
+
+// Варіант 2 
+// Використання {} як першого аргументу в Object.assign гарантує, що буде створено 
+// новий об'єкт в який залиються A i B, а не будуть мутуватись існуючі.
+// function merge<T, U> (objA: T, objB: U): T & U {
+//   return Object.assign({}, objA, objB);
+// }
+// export {}

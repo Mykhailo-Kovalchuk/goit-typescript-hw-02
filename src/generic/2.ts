@@ -11,7 +11,18 @@ type AllType = {
   weight: number
 }
 
-function compare (top, bottom): AllType {
+// Pick — це утилітний тип у TypeScript, що дозволяє вам обрати набір властивостей з існуючого типу 
+// і створити новий тип на основі цих властивостей (фактично з переліку властивостей Типу який 
+// буде прототипом взяти необїідні властивосі і створити їх в новому типі).
+// Так би це виглядало, якби я створював їх окремо на основі AllType
+// type BottomObj = Pick<AllType, "position" | "weight">;
+// type TopObj = Pick<AllType, "name" | "color">
+
+
+function compare (
+  top: Pick<AllType, "name" | "color">,  
+bottom: Pick<AllType, "position" | "weight">): AllType {
+  
   return {
     name: top.name,
     color: top.color,

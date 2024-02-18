@@ -13,11 +13,28 @@ type User = {
   email: string;
   password: string;
 }
-
-function createOrUpdateUser(initialValues: User) {
+// Оскільки нам потрібні не всі поля, то ми можемо зробити їх необов`язковими через Partial
+// Тоді TS не буде лаятись що ми не все використали
+function createOrUpdateUser(initialValues: Partial<User>) {
   // Оновлення користувача
 }
-
 createOrUpdateUser({ email: 'user@mail.com', password: 'password123' });
 
 export {};
+
+
+//  Варінат 2, 
+//просто в типі User вручну прописати необов`язкові поля.
+
+// type User = {
+//   name?: string;
+//   surname?: string;
+//   email?: string;
+//   password?: string;
+// }
+// function createOrUpdateUser(initialValues: User) {
+//   // Оновлення користувача
+// }
+// createOrUpdateUser({ email: 'user@mail.com', password: 'password123' });
+
+// export {};

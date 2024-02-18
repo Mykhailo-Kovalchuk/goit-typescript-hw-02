@@ -10,10 +10,22 @@ export enum UserRole {
 }
 
 // Замініть наступний код на версію за допомогою Record
-const RoleDescription = {
+// const RoleDescription = {
+//   admin: 'Admin User',
+//   editor: 'Editor User',
+//   guest: 'Guest User',
+// };
+
+
+// Record<K, T> — це утилітний тип, що дозволяє створювати типи із заздалегідь відомими властивостями.
+//  Це дуже корисно, коли вам потрібно створити об'єкт із певними ключами та значеннями, типи яких ви заздалегідь знаєте.
+// Принцип роботи Record наступний: ви вказуєте набір ключів K і тип T, який буде присвоєно кожному з цих ключів. 
+
+export const RoleDescription: Record<UserRole, string> = {
   admin: 'Admin User',
   editor: 'Editor User',
   guest: 'Guest User',
-};
+}
+
 
 export {};
